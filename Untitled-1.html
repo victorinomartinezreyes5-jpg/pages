@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REGALO DIGITAL 💖</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0a0a0a;
+  color: white;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+}
+
+/* 🌹 LOGO */
+.logo {
+  font-size: 2em;
+  margin-top: 20px;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #ff69b4;
+}
+
+/* 🌹 ROSA SVG */
+.rosa {
+  width: 100px;
+  margin: 10px auto;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 5px #00ffcc); }
+  to { filter: drop-shadow(0 0 15px #ff69b4); }
+}
+
+/* 🧠 ESLOGAN */
+.eslogan {
+  font-size: 1em;
+  color: #ff69b4;
+  margin-bottom: 20px;
+}
+
+/* 💖 CORAZÓN */
+#ui {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+}
+
+.love_word {
+  position: absolute;
+  color: #ea80b0;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px #fff;
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* 💻 CÓDIGO */
+.code-box {
+  background: #1e1e2f;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+/* 🛒 PRODUCTO */
+.producto {
+  background: #111;
+  padding: 20px;
+  margin: 20px auto;
+  width: 280px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #ff69b4;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff1493;
+}
+
+/* 💬 CHAT */
+.chat {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 250px;
+  background: #222;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* 🟢 WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌹 LOGO -->
+<div class="logo">🌹 REGALO DIGITAL</div>
+
+<!-- 🌹 ROSA TECNOLÓGICA -->
+<svg class="rosa" viewBox="0 0 100 100">
+  <path d="M50 20 C60 10, 80 20, 70 40 C90 50, 60 80, 50 60 C40 80, 10 50, 30 40 C20 20, 40 10, 50 20"
+        fill="none"
+        stroke="#00ffcc"
+        stroke-width="2"/>
+  <circle cx="50" cy="50" r="3" fill="#ff69b4"/>
+</svg>
+
+<!-- 🧠 ESLOGAN -->
+<div class="eslogan">
+CANSADO DE LOS REGALOS ABURRIDOS,<br>
+TECNOLOGIZA TU AMOR Y TU DESEO 💖
+</div>
+
+<!-- 💖 CORAZÓN -->
+<div id="ui"></div>
+
+<!-- 💻 CÓDIGO -->
+<div class="code-box">
+<pre>
+.love_word {
+  color: #ea80b0;
+  text-shadow: 0 0 10px #fff;
+}
+</pre>
+</div>
+
+<!-- 🛒 PRODUCTO -->
+<div class="producto">
+  <h3>💌 Mensaje Animado</h3>
+  <p>Regalo digital personalizado</p>
+  <h2>$5 USD</h2>
+  <button onclick="comprar()">Comprar</button>
+</div>
+
+<!-- 💬 CHAT -->
+<div class="chat">
+  <div id="chatBox"></div>
+  <input type="text" id="msg" placeholder="Escribe...">
+  <button onclick="enviar()">Enviar</button>
+</div>
+
+<!-- 🟢 WHATSAPP -->
+<a class="whatsapp" 
+href="https://wa.me/1234567890?text=Quiero%20mi%20regalo%20digital" 
+target="_blank">💬</a>
+
+<script>
+// 💖 CORAZÓN
+const ui = document.getElementById("ui");
+
+for (let i = 0; i < 140; i++) {
+  let span = document.createElement("div");
+  span.className = "love_word";
+  span.innerText = "I love you";
+
+  let t = i / 140 * Math.PI * 2;
+
+  let x = 150 + 100 * Math.pow(Math.sin(t), 3);
+  let y = 150 - (80 * Math.cos(t) - 30 * Math.cos(2*t) - 10 * Math.cos(3*t));
+
+  span.style.left = x + "px";
+  span.style.top = y + "px";
+
+  ui.appendChild(span);
+}
+
+// 🛒 COMPRA
+function comprar() {
+  alert("Gracias por elegir REGALO DIGITAL 💖");
+}
+
+// 💬 CHAT
+function enviar() {
+  let msg = document.getElementById("msg").value;
+  let chat = document.getElementById("chatBox");
+
+  if (msg !== "") {
+    chat.innerHTML += "<p>🧑: " + msg + "</p>";
+    chat.innerHTML += "<p>🤖: Te responderemos pronto 💖</p>";
+    document.getElementById("msg").value = "";
+  }
+}
+</script>
+
+</body>
+</html>
